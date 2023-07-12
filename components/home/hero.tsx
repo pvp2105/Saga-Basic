@@ -2,26 +2,26 @@ import React, { useEffect } from "react";
 import { Button, Container, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import Image from "next/image";
-import { ApiResponse, fetchDataNews } from "@/services/newsService";
 import { useAppSelector } from "@/stores/store";
 import { useDispatch } from "react-redux";
-import { myNews } from "@/reducers/newsSlice";
-import avatar from "@/images/avatar.png";
-import { Post } from "@/models";
+// import avatar from "@/images/avatar.png";
 
 export function HeroSection() {
   const { news } = useAppSelector((state) => state.newsReducer);
 
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   async function getNews() {
+  //     const res: ApiResponse<Post> = await fetchDataNews();
+  //     if (res && res.data) {
+  //       dispatch(myNews(res.data));
+  //     }
+  //     console.log(res);
+  //   }
+  //   getNews();
+  // }, []);
   useEffect(() => {
-    async function getNews() {
-      let res: ApiResponse<Post> = await fetchDataNews();
-      if (res && res.data) {
-        dispatch(myNews(res.data));
-      }
-      console.log(res);
-    }
-    getNews();
+    dispatch({ type: "FETCH_NEWS" });
   }, []);
 
   return (

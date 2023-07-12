@@ -14,15 +14,18 @@ export function HeaderDesktop() {
   const { titles } = useAppSelector((state) => state.newsReducer);
 
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   async function getTitles() {
+  //     let res: ApiResponse<Title> = await fetchDataDanhMuc();
+  //     if (res && res.data) {
+  //       dispatch(myTitles(res.data));
+  //     }
+  //     console.log(res);
+  //   }
+  //   getTitles();
+  // }, []);
   useEffect(() => {
-    async function getTitles() {
-      let res: ApiResponse<Title> = await fetchDataDanhMuc();
-      if (res && res.data) {
-        dispatch(myTitles(res.data));
-      }
-      console.log(res);
-    }
-    getTitles();
+    dispatch({ type: "FETCH_TITLES" });
   }, []);
 
   const router = useRouter();
