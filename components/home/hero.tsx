@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
-import { Button, Container, Stack, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  Stack,
+  Link as MuiLink,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import { useAppSelector } from "@/stores/store";
 import { useDispatch } from "react-redux";
+import Link from "next/link";
 // import avatar from "@/images/avatar.png";
 
 export function HeroSection() {
@@ -43,9 +50,11 @@ export function HeroSection() {
 
               <Typography mb={5}>{item.tomTat}</Typography>
 
-              <Button variant="contained" size="large">
-                Download Resume
-              </Button>
+              <Link href="/blog" passHref>
+                <MuiLink sx={{ ml: 2, fontWeight: "medium" }}>
+                  <Button variant="contained">Go to Blog Page</Button>
+                </MuiLink>
+              </Link>
             </Box>
 
             <Box

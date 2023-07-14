@@ -1,0 +1,23 @@
+- HLS hoạt động bằng cách chia video thành các phần nhỏ hơn gọi là các đoạn (segments). Mỗi đoạn là một tệp video ngắn và được tải xuống từ máy chủ thông qua giao thức HTTP. Các đoạn
+này được phân phối theo thời gian, cho phép trình phát video tải xuống và phát các đoạn theo nhu cầu.
+
+- m3u8 là định dạng tệp cho video HLS (HTTP Live Streaming)
+- Tệp .m3u8 chứa danh sách các URL cho các đoạn video, cũng như thông tin khác như thời gian của mỗi đoạn.
+
+- Thư viện HLS.js là một thư viện mã nguồn mở và phổ biến để phát video HLS trên trình duyệt web.
+  Nó cung cấp các chức năng và công cụ cần thiết để phát trực tiếp video HLS trong một trình phát video HTML5 thông qua JavaScript.
+- Thư viện HLS.js tự động xử lý tải xuống và phát các đoạn video theo chuỗi thời gian,
+
+ *Sự khác biệt của video HLS với video thường
+
+ - Video HLS có thể được phát lại trên nhiều thiết bị khác nhau, bao gồm cả điện thoại di động, máy tính bảng và TV thông minh.
+ Các video thông thường thường chỉ được phát lại trên một số thiết bị nhất định.
+
+- Video HLS thường có khả năng điều chỉnh độ phân giải để phù hợp với khả năng mạng của người dùng.
+ Khi mạng chậm, video HLS sẽ tự động giảm độ phân giải để giảm thiểu việc tắt hình và giật hình. 
+- Video HLS có khả năng mã hóa và bảo mật để ngăn chặn việc sao chép và phát tán trái phép. 
+
+        // Một số tùy chọn và cấu hình Hls.js
+        maxBufferSize: 10 * 1000 * 1000, // Đặt kích thước tối đa của bộ đệm (giá trị tính bằng byte)
+        maxBufferLength: 10, // Đặt số đoạn tối đa được giữ trong bộ đệm
+        enableWorker: true, // Kích hoạt việc sử dụng worker để xử lý một số công việc nền
