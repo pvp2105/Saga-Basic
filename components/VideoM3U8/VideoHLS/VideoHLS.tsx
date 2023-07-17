@@ -1,7 +1,7 @@
 import React, { useEffect, memo } from "react";
 import Hls from "hls.js";
 
-function VideoPlayer() {
+function VideoHLS() {
   useEffect(() => {
     const video = document.getElementById("video") as HTMLVideoElement;
 
@@ -20,7 +20,14 @@ function VideoPlayer() {
     }
   }, []);
 
-  return <video id="video" controls autoPlay className="video-player"></video>;
+  return (
+    <video
+      id="video"
+      controls
+      className="video-player"
+      style={{ width: "620px", height: "300px" }}
+    ></video>
+  );
 }
 
-export default memo(VideoPlayer);
+export default memo(VideoHLS);
